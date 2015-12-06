@@ -1,5 +1,6 @@
 import pygame
 from math import atan2, sqrt, cos, sin
+import random
 
 
 class Ship(object):
@@ -15,7 +16,8 @@ class Ship(object):
     _spritePath = ''
     orbiting_speed = .005
 
-    def __init__(self, start_pos=(150, 150), max_hp=max_hp, atk=atk, orbiting=False, screen_size=()):
+    def __init__(self, start_pos=(150, 150), max_hp=max_hp, atk=atk, orbiting=False, screen_size=(960, 600)):
+        self.orbiting_speed = random.uniform(0.0025, 0.01) #for now, random speed. Speed should increase as we upgrade the ship
         self.hp = max_hp
         self.screen_size = screen_size
         self.orbiting = orbiting

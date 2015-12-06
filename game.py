@@ -30,11 +30,9 @@ class PlanetDefense:
         self.exit = False
         self.players = [Player()]
 
-    def update(self, e):
+    def update(self):
         for s in self.enemies + self.ships:
             s.update()
-            #    for object in self.enemies,self.ships,self.players:
-            #   object.update()
     
     def draw_sprite(self, sprite, x, y):
         self.display.blit(sprite, (x - sprite.get_size()[0] / 2, y - sprite.get_size()[0] / 2))
@@ -66,7 +64,7 @@ class PlanetDefense:
                 elif e.type == pygame.MOUSEBUTTONDOWN:
                     self.build_ship()
                 #print(e)
-            self.update(pygame.event)  # update the positions etc
+            self.update()  # update the positions etc
             self.draw()  # draw the game screen
 
             pygame.display.update()

@@ -16,6 +16,7 @@ class Enemy(object):
     _spritePath = ''
 
     def __init__(self, screen_size, max_hp=max_hp):
+        self.speed = random.uniform(0.75, 1.75)
         self.screen_size = screen_size
         self.max_hp = max_hp
         rand = random.randint(1, 6)  # very basic way to decide which asteriod to spawn
@@ -34,8 +35,6 @@ class Enemy(object):
         # print(self.x, self.y)
 
     def update(self):
-
         self.radius -= self.speed
-
         self.y = self.radius * sin(self.angle) + self.screen_size[1] / 2.
         self.x = self.radius * cos(self.angle) + self.screen_size[0] / 2.
