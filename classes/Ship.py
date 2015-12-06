@@ -28,13 +28,16 @@ class Ship(object):
     def update(self):
         if self.orbiting:
             # coords considering the origin to be the center
-            x, y = self.x - self.screen_size[0]/2, self.y - self.screen_size[1]/2
+            x, y = self.x - self.screen_size[0] / 2, self.y - self.screen_size[1] / 2
 
+            # getting the angle and radius
             angle = atan2(y, x)
             radius = sqrt(x ** 2 + y ** 2)
 
+            # orbit a little bit
             angle += self.orbiting_speed
 
             x, y = radius * cos(angle), radius * sin(angle)
 
-            self.x, self.y = x + self.screen_size[0]/2, y + self.screen_size[1]/2
+            # back to top-left origin
+            self.x, self.y = x + self.screen_size[0] / 2, y + self.screen_size[1] / 2
