@@ -31,7 +31,7 @@ class PlanetDefense:
         self.players = [Player()]
 
     def update(self, e):
-        for s in self.enemies:
+        for s in self.enemies + self.ships:
             s.update()
             #    for object in self.enemies,self.ships,self.players:
             #   object.update()
@@ -47,7 +47,7 @@ class PlanetDefense:
 
     def build_ship(self):
         print(pygame.mouse.get_pos())
-        self.ships.append(Ship(pygame.mouse.get_pos()))
+        self.ships.append(Ship(pygame.mouse.get_pos(), screen_size=self.screenSize, orbiting=True))
 
     def spawn_asteroid(self):
         self.enemies.append(Enemy(self.screenSize))
